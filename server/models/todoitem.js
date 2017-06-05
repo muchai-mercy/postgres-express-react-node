@@ -1,6 +1,6 @@
 'use strict';
 module.exports = function (sequelize, DataTypes) {
-  var TodoItem = sequelize.define('TodoItem', {
+  const TodoItem = sequelize.define('TodoItem', {
     content: {
       type: DataTypes.STRING,
       allowNull: false
@@ -13,9 +13,9 @@ module.exports = function (sequelize, DataTypes) {
     {
       classMethods: {
         associate: (models) => {
-          TodoItem.belongsTo(modelsTodo, {
-            foreignKey: todoId,
-            onDelete: CASCADE,
+          TodoItem.belongsTo(models.Todo, {
+            foreignKey: 'todoId',
+            onDelete: 'CASCADE',
           });
         },
       },
